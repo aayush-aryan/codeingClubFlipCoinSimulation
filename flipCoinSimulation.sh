@@ -2,9 +2,6 @@
 
 echo WELCOME TO FLIP COIN SIMULATOR
 
-isHead=0;
-isHeadWon=0;
-isTailWon=0;
 
 while [[ $isHeadWon -lt 21 && $isTailWon -lt 21 ]]
 do
@@ -31,4 +28,26 @@ then
 	echo "Tie"
 else
 	echo "Head Win"
+fi
+
+echo Usecase4
+if [[ isHeadWon -eq isTailWon ]]
+then
+while [[ $WinDifference -ge 2 ]]
+do
+	randomCheck2=$(( RANDOM%2 ))
+
+if [[ IsHead -eq randomCheck2 ]]
+then
+	echo "Head"
+	IsHeadWon=$(( $IsHeadWon + 1 ))
+	WinDifference=$(( $IsHeadWon - $IsTailWon ))
+else
+	echo "Tail"
+	IsTailWon=$(( $IsTailWon + 1 ))
+	WinDifference=$(( $IsTailWon - $IsHeadWon ))
+fi
+done
+else
+	echo "Tie"
 fi
